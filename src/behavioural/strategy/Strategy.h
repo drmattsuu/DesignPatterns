@@ -1,8 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <string>
-
 namespace Strategy
 {
 
@@ -14,7 +11,15 @@ namespace Strategy
 class Strategy
 {
 public:
-    virtual int execute(int a, int b) = 0;
+    Strategy() = default;
+    virtual ~Strategy() = default;
+
+    Strategy(Strategy& rhs) = default;
+    Strategy& operator=(const Strategy& rhs) = default;
+    Strategy(Strategy&& rhs) = default;
+    Strategy& operator=(Strategy&& rhs) = default;
+
+    virtual int execute(const int a, const int b) = 0;
 };
 
 }  // namespace Strategy

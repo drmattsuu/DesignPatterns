@@ -17,16 +17,16 @@ namespace Strategy
 class Context
 {
 public:
-    void setStrategy(std::shared_ptr<Strategy> strategy) { m_currentStrategy = strategy; }
+    void setStrategy(const std::shared_ptr<Strategy>& strategy) { m_currentStrategy = strategy; }
 
-    int processData(int a, int b)
+    int processData(const int a, const int b) const
     {
         if (!m_currentStrategy)
         {
             throw std::runtime_error("Current Strategy is null.");
         }
 
-        std::cout << "Processing the data a: " << a << " b: " << b << std::endl;
+        std::cout << "Processing the data a: " << a << " b: " << b << "\n";
         return m_currentStrategy->execute(a, b);
     }
 
