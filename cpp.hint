@@ -1,0 +1,4 @@
+// Hint files help the Visual Studio IDE interpret Visual C++ identifiers
+// such as names of functions and macros.
+// For more information see https://go.microsoft.com/fwlink/?linkid=865984
+#define INTERFACE_CLASS(CLS_NAME) public: CLS_NAME() = default; virtual ~CLS_NAME() = default; CLS_NAME(CLS_NAME& rhs) = default; CLS_NAME& operator=(const CLS_NAME& rhs) = default; CLS_NAME(CLS_NAME&& rhs) = default; CLS_NAME& operator=(CLS_NAME&& rhs) = default; private:

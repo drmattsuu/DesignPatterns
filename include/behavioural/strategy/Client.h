@@ -50,8 +50,8 @@ public:
 
     void run(const Action action, const int a, const int b)
     {
-        const auto addStrategy = std::make_shared<AddStrategy>(AddStrategy());
-        const auto subtractStrategy = std::make_shared<SubtractStrategy>(SubtractStrategy());
+        const auto addStrategy = std::make_shared<AddStrategy>();
+        const auto subtractStrategy = std::make_shared<SubtractStrategy>();
 
         switch (action)
         {

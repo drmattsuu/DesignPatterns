@@ -1,5 +1,7 @@
 #pragma once
 
+#include <Util.h>
+
 namespace Strategy
 {
 
@@ -7,17 +9,10 @@ namespace Strategy
  * The Strategy interface is common to all concrete strategies. It declares a method the context uses to execute a
  * strategy.
  */
-
 class Strategy
 {
+    INTERFACE_CLASS(Strategy)
 public:
-    Strategy() = default;
-    virtual ~Strategy() = default;
-
-    Strategy(Strategy& rhs) = default;
-    Strategy& operator=(const Strategy& rhs) = default;
-    Strategy(Strategy&& rhs) = default;
-    Strategy& operator=(Strategy&& rhs) = default;
 
     virtual int execute(const int a, const int b) = 0;
 };
