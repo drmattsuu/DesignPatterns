@@ -1,7 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
+#include <print>
 
 #include "Strategy.h"
 
@@ -24,7 +24,7 @@ public:
             throw std::runtime_error("Current Strategy is null.");
         }
 
-        std::cout << "Processing the data a: " << a << " b: " << b << "\n";
+        std::println("Processing the data a: {0} b: {1}", a, b);
         return m_currentStrategy->execute(a, b);
     }
 

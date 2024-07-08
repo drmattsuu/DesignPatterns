@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <print>
 
 #include "Factory.h"
 
@@ -12,13 +13,13 @@ namespace Factory
 class Can final : public Product
 {
 public:
-    void open() override { std::cout << "Opening the Can.\n"; }
+    void open() override { std::println("Opening the Can."); }
 };
 
 class Box final : public Product
 {
 public:
-    void open() override { std::cout << "Opening the Box.\n"; }
+    void open() override { std::println("Opening the Box."); }
 };
 
 /**
@@ -36,16 +37,9 @@ public:
     std::shared_ptr<Product> createProduct() override { return std::make_shared<Box>(); }
 };
 
-/**
- * 
- */
-class Client
+static void Run(const std::shared_ptr<Factory>& factory)
 {
-public:
-    static void run(const std::shared_ptr<Factory>& factory)
-    {
-        std::cout << "Running Factory:\n";
-        factory->createAndOpen();
-    }
-};
+    std::println("Running Factory:");
+    factory->createAndOpen();
+}
 }  // namespace Factory

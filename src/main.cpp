@@ -1,9 +1,9 @@
 
 #include "behavioural/strategy/Client.h"
 #include "creational/factory/Client.h"
-#include "creational/factory/Factory.h"
+#include "structural/composite/Client.h"
 
-#include <iostream>
+#include <print>
 
 int main()
 {
@@ -15,13 +15,26 @@ int main()
         const auto canFactory = std::make_shared<Factory::CanFactory>();
         const auto boxFactory = std::make_shared<Factory::BoxFactory>();
 
-        Factory::Client factoryClient;
-        factoryClient.run(canFactory);
-        factoryClient.run(boxFactory);
+        Factory::Run(canFactory);
+        Factory::Run(boxFactory);
     }
     catch (std::exception& ex)
     {
-        std::cout << ex.what() << "\n";
+        std::println("Exception: {0}", ex.what());
+        return 1;
+    }
+
+    // Structural
+    // Composite
+    try
+    {
+        std::cout << "Composite Example:\n";
+        const Composite::Client compositeClient;
+        compositeClient.run();
+    }
+    catch (std::exception& ex)
+    {
+        std::println("Exception: {0}", ex.what());
         return 1;
     }
 
@@ -36,7 +49,7 @@ int main()
     }
     catch (std::exception& ex)
     {
-        std::cout << ex.what() << "\n";
+        std::println("Exception: {0}", ex.what());
         return 1;
     }
     // -

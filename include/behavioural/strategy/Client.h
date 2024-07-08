@@ -1,7 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include <memory>
+#include <print>
 
 #include "Context.h"
 #include "Strategy.h"
@@ -19,7 +19,7 @@ class AddStrategy final : public Strategy
 public:
     int execute(const int a, const int b) override
     {
-        std::cout << "Running add strategy.\n";
+        std::println("Running add strategy.");
         return a + b;
     }
 };
@@ -29,7 +29,7 @@ class SubtractStrategy final : public Strategy
 public:
     int execute(const int a, const int b) override
     {
-        std::cout << "Running subtract strategy.\n";
+        std::println("Running subtract strategy.");
         return a - b;
     }
 };
@@ -65,7 +65,7 @@ public:
 
         const int result = m_myContext.processData(a, b);
 
-        std::cout << "Result: " << result << "\n";
+        std::println("Result: {0}", result);
     }
 
 private:
